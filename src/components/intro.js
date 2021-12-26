@@ -1,6 +1,22 @@
 import React, {useState, useEffect} from "react"
 import { render } from "react-dom";
 import ReactDOM from 'react-dom'
+import { keyframes } from '@emotion/react';
+import "@fontsource/nunito"
+
+
+const positionAnim = keyframes`
+  from {
+    position: fixed;
+    opacity: 1;
+  }
+
+  to {
+    position: absolute;
+    opacity: 1;
+    transition: all 0.4s ease;
+  }
+`;
 
 let anim = [
     { text: "_", timer: 200},
@@ -33,7 +49,7 @@ let animp2 = [
 export default function Intro() {
 
     const [text, setText] = useState("_")
-    const [text2, setText2] = useState("_")
+    const [text2, setText2] = useState("")
     const [counter, setCounter] = useState(0)
     
     useEffect(() => {
@@ -46,7 +62,7 @@ export default function Intro() {
                 setText(anim[counter].text)
             }
             else if(counter-11<animp2.length){
-                setText(anim[10].text)
+                setText(anim[11].text)
                 setText2(animp2[counter-11].text)
                 console.log(anim[10].text+animp2[counter-11].text)
             }
@@ -57,13 +73,35 @@ export default function Intro() {
     }
 
     return(
-        <h1>{text}{text2}</h1>
+        <div styles={styles.center}>
+            <span style={styles.text2}>{text}</span>
+            <span style={styles.text1}>{text2}</span>
+        </div>
     )
 }
 
-/*const styles = {
-    header: {
-        color
+const styles = {
+    text1: {
+        color: "#6AA84F",
+        //position: "absolute",
+        backgroundColor: 'transparent',
+        transition: 'all 0.4s ease',
+        animation: `${positionAnim} 0.4s ease`,
+        fontSize: 74,
+        fontFamily: "nunito"
+    },
 
-    }
-}*/
+    text2: {
+        color: "#000000",
+        backgroundColor: 'transparent',
+        fontSize: 74,
+        fontFamily: "nunito"
+    },
+
+    center: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh"
+      }
+}
