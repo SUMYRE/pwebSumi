@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Header from './header/header';
 import Sticky from 'react-stickynode';
 import Footer from './footer/footer';
 
-export default function HomeLayout({children}) {
+export default function HomeLayout() {
     const [isSticky, setIsSticky] = useState(false);
 
     const handleStateChange = (statusbar) => {
@@ -15,15 +15,16 @@ export default function HomeLayout({children}) {
             setIsSticky(false)
         }
     }
+
     return(
         <React.Fragment>
             <Sticky onStateChange={handleStateChange}>
                 <Header stateofbeing={`${isSticky ? 'sticky' : 'unSticky'}`}/>
             </Sticky>
             <main sx={{variant: 'layout.main'}}>
-                {children}
+                <children/>
             </main>
-            <Footer></Footer>
+            <Footer/>
         </React.Fragment>
     )
 }

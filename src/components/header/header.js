@@ -1,10 +1,14 @@
-import { jsx, Container, Flex, Button } from "theme-ui";
+import { jsx, Container, Flex, Button, Box} from "theme-ui";
 import {keyframes} from '@emotion/react'
 import { Link } from "react-scroll";
 
+//const [isDarkMode, setIsDarkMode] = useState(false)
+
 export default function Header({stateofbeing}){
     return(
-        <h1>Header</h1>
+      <header>
+        <h1>This is the header</h1>
+      </header>
     );
 }
 
@@ -20,3 +24,10 @@ const positionAnim = keyframes`
     transition: all 0.4s ease;
   }
 `;
+
+const styles = {
+  header: {
+    color: 'text',
+    fontWeight: 'body'
+  }
+}
