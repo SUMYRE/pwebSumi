@@ -12,7 +12,7 @@ export default function HomePage() {
         setLoading(true)
         setTimeout(() => {
             (setLoading(false))
-        },3500);
+        },2700);
     },[])
   
   return(

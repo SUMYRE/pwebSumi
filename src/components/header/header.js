@@ -7,7 +7,10 @@ import { Link } from "react-scroll";
 export default function Header({stateofbeing}){
     return(
       <header>
-        <h1>This is the header</h1>
+        <div style={styles.center}>
+          <span style={styles.text2}>_PROJECT</span>
+          <span style={styles.text1}>SUMI</span>
+        </div>
       </header>
     );
 }
@@ -16,5 +19,26 @@ const styles = {
   header: {
     color: 'text',
     fontWeight: 'body'
-  }
+  },
+
+  center:{
+    height: "10vh",
+    justifyContent: "center",
+    alignItems: "center",
+    display: "flex",
+  },
+
+  text1: {
+    color: "#6AA84F",
+    backgroundColor: 'transparent',
+    fontFamily: "nunito",
+    fontSize: 34
+  },
+
+  text2: {
+    color: "#000000",
+    backgroundColor: 'transparent',
+    fontFamily: "nunito",
+    fontSize: 34
+  },
 }
