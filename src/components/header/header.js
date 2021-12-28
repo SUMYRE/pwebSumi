@@ -12,19 +12,6 @@ export default function Header({stateofbeing}){
     );
 }
 
-const positionAnim = keyframes`
-  from {
-    position: fixed;
-    opacity: 1;
-  }
-
-  to {
-    position: absolute;
-    opacity: 1;
-    transition: all 0.4s ease;
-  }
-`;
-
 const styles = {
   header: {
     color: 'text',

@@ -21,7 +21,7 @@ export default function HomePage() {
         loading ?
           <Intro styles={styles.center}/>
         :
-        <h1>Something else, this is the sefcond part</h1>
+        <HomeLayout/>
       }
     </ThemeProvider>
   )

@@ -1,6 +1,8 @@
 export default {
     colors: {
-        text: '#343D48'
+        text: '#343D48',
+        //text: '#6AA84F',
+        intro: '#6AA84F'
     },
     layout: {
         container: {

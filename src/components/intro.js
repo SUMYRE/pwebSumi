@@ -1,22 +1,18 @@
 import React, {useState, useEffect} from "react"
-import { render } from "react-dom";
-import ReactDOM from 'react-dom'
-import { keyframes } from '@emotion/react';
 import "@fontsource/nunito"
+import { css, jsx} from "@emotion/react";
+import {cx, keyframes} from "@emotion/css"
 
-
-const positionAnim = keyframes`
-  from {
-    position: fixed;
-    opacity: 1;
-  }
-
-  to {
-    position: absolute;
-    opacity: 1;
-    transition: all 0.4s ease;
-  }
-`;
+const key = keyframes(
+    `from {
+        justifyContent: "center",
+        alignItems: "center",
+        display: "flex",
+        height: "100vh"
+    }, to {
+        height: "100vh"
+    }`
+)
 
 let anim = [
     { text: "_", timer: 200},
@@ -75,6 +71,8 @@ export default function Intro() {
     const [text, setText] = useState("_")
     const [text2, setText2] = useState("")
     const [counter, setCounter] = useState(0)
+    const [pos, setPos] = useState("100vh")
+    const [textS, setTextS] = useState(74)
     
     useEffect(() => {
        updateText()
@@ -94,6 +92,12 @@ export default function Intro() {
                 setCounter(prevCounter => prevCounter +1)
             },anim[counter].timer)
         }
+        else {
+            setTimeout(()=> {
+                setPos("10vh")
+                setTextS(34)
+            },500)
+        }
     }
     /*const updateText = () => {
         if(counter<anim.length) {
@@ -112,35 +116,33 @@ export default function Intro() {
     }*/
 
     return(
-        <div style={styles.center}>
-            <span style={styles.text2}>{text}</span>
-            <span style={styles.text1}>{text2}</span>
+        <div style={{...styles.center, height: pos}}>
+            <span style={{...styles.text2, fontSize: textS}}>{text}</span>
+            <span style={{...styles.text1, fontSize: textS}}>{text2}</span>
         </div>
-    )
+    )       
 }
 
 const styles = {
     text1: {
         color: "#6AA84F",
-        //position: "absolute",
+        //color: 'intro',
         backgroundColor: 'transparent',
-        transition: 'all 0.4s ease',
-        animation: `${positionAnim} 0.4s ease`,
-        fontSize: 74,
         fontFamily: "nunito",
+        transition: `all 0.2s ease`
     },
 
     text2: {
         color: "#000000",
         backgroundColor: 'transparent',
-        fontSize: 74,
         fontFamily: "nunito",
+        transition: `all 0.2s ease`
     },
 
     center: {
         justifyContent: "center",
         alignItems: "center",
         display: "flex",
-        height: "100vh"
-      }
+        transition: "all 0.27s ease"
+    },
 }
