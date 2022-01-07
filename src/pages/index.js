@@ -3,6 +3,7 @@ import theme from '../theme'
 import HomeLayout from '../components/homeLayout';
 import React, {useState, useEffect} from 'react';
 import Intro from '../components/intro';
+import Tester from '../components/tester'
 
 export default function HomePage() {
 
@@ -21,7 +22,9 @@ export default function HomePage() {
         loading ?
           <Intro styles={styles.center}/>
         :
-        <HomeLayout/>
+        <HomeLayout>
+          <Tester/>
+        </HomeLayout>
       }
     </ThemeProvider>
   )
